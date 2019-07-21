@@ -56,10 +56,14 @@
                         <a href="feedback.html"><i class="fa fa-book fa-3x"></i>الشكاوي والمقترحات</a>
                     </li>
                     <li>
-                        <a href="orders.html"><i class="fa fa-check-square fa-3x"></i>الطلبات</a>
+                        <a href="orders.html"><i class="fa fa-check-square fa-3x"></i>الطلبات تم تنفيذها</a>
                     </li>
                     <li>
-                        <a class="active-menu" href="onListOrders.html"><i class="fa fa fa-square fa-3x"></i> الطلبات
+                        <a href="inWorkOrders.html"><i class="fa fa fa-square fa-3x"></i> الطلبات
+                            تحت التنفيذ</a>
+                    </li>
+                    <li>
+                        <a class="active-menu" href="onListOrders.html"><i class="fa fa fa-flag fa-3x"></i> الطلبات
                             المعلقة</a>
                     </li>
                     <li>
@@ -68,7 +72,7 @@
                     <li>
                         <a href="category.html"><i class="fa fa-sitemap fa-3x"></i>الفئات
                             والشركات</a>
-                    </li> 
+                    </li>
                     <li>
                         <a href="item.html"><i class="fa fa-sitemap fa-3x"></i>المنتجات</a>
                     </li>
@@ -95,24 +99,20 @@
                                                 <th width="5%">
                                                     <span class="tbl-data">#</span>
                                                 </th>
-                                                <th width="10%">
+                                                <th width="15%">
                                                     <span class="tbl-data"> الخدمة </span>
                                                 </th>
                                                 <th width="10%">
                                                     <span class="tbl-data">المحافظة</span>
                                                 </th>
-                                                <th width="10%">
+                                                <th width="15%">
                                                     <span class="tbl-data">التاريخ</span>
                                                 </th>
-                                                <th width="10%">
-                                                    <span class="tbl-data">المبلغ</span>
-                                                </th>
-                                                <th width="10%">
-                                                    <span class="tbl-data">الحالة</span>
-                                                </th>
-                                                <th width="25%">
+                                                <th width="35%">
                                                     <span clas="tbl-data">
-
+                                                        <button class="btn btn-success add-admin-btn"
+                                                            data-toggle="modal" data-target="#addOrder">
+                                                            اضافة طلب</button>
                                                     </span>
                                                 </th>
                                             </tr>
@@ -122,22 +122,16 @@
                                                 <td width="5%">
                                                     <span class="tbl-data"> 15 </span>
                                                 </td>
-                                                <td width="10%">
+                                                <td width="15%">
                                                     <span class="tbl-data"> كهربائي </span>
                                                 </td>
                                                 <td width="10%">
                                                     <span class="tbl-data">أسيوط</span>
                                                 </td>
-                                                <td width="10%">
+                                                <td width="15%">
                                                     <span class="tbl-data">12/3/2012 </span>
                                                 </td>
-                                                <td width="10%">
-                                                    <span class="tbl-data"> 20 ج.م </span>
-                                                </td>
-                                                <td width="10%">
-                                                    <span class="tbl-data">تم التنفيذ</span>
-                                                </td>
-                                                <td width="25%">
+                                                <td width="35%">
                                                     <div class="form-group row-option">
                                                         <button type="button"
                                                             class="btn btn-success options-admin-btn options-admin-btn-sm "
@@ -162,6 +156,128 @@
             </div>
         </div>
 
+        <!-- Modal -- add Order -->
+        <div class="modal fade" id="addOrder" tabindex="-1" role="dialog" aria-labelledby="basicModal"
+            aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <form>
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                            <h4 class="modal-title" id="myModalLabel"><b>اضف طلب </b></h4>
+                        </div>
+                        <div class="modal-body-popup">
+                            <div class="form-row">
+                                <div class="form-group row">
+                                    <div class="form-group col-lg-6">
+                                        <label for="validationCustomfName">اسم المستخدم<span
+                                                class="red-star"><sup>*</sup></span></label>
+                                        <input tabindex="1" class="form-control" type="text"
+                                            oninvalid="this.setCustomValidity(' اسم المستخدم مطلوب')"
+                                            oninput="this.setCustomValidity('')" required />
+                                    </div>
+                                    <div class="form-group col-lg-6">
+                                        <label for="validationCustomfName">الخدمة<span
+                                                class="red-star"><sup>*</sup></span></label>
+                                        <select tabindex="6" class="form-control"
+                                            oninvalid="this.setCustomValidity(' الخدمة مطلوبة')"
+                                            oninput="this.setCustomValidity('')" required />
+                                        <option hidden selected disabled></option>
+                                        <option>كهربائي</option>
+                                        <option>سباكة</option>
+                                        <option>نجارة</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <div class="form-group col-lg-6">
+                                        <label for="validationCustomfName">رقم المحمول <span
+                                                class="red-star"><sup>*</sup></span></label>
+                                        <input tabindex="2" class="form-control" type="text" minlength="11" maxlength="11"
+                                            oninvalid="this.setCustomValidity('رقم المحمول  مطلوب')"
+                                            oninput="this.setCustomValidity('')" required />
+                                    </div>
+                                    <div class="form-group col-lg-6">
+                                        <label for="validationCustomfName">التاريخ <span
+                                                class="red-star"><sup>*</sup></span></label>
+                                        <input tabindex="7" class="form-control" type="date"
+                                            oninvalid="this.setCustomValidity(' التاريخ مطلوب')"
+                                            oninput="this.setCustomValidity('')" required />
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <div class="form-group col-lg-6">
+                                        <label for="validationCustomfName">المحافظة <span
+                                                class="red-star"><sup>*</sup></span></label>
+                                        <select tabindex="3" class="form-control"
+                                            oninvalid="this.setCustomValidity(' المحافظة مطلوبة')"
+                                            oninput="this.setCustomValidity('')" required />
+                                        <option hidden selected disabled></option>
+                                        <option>كهربائي</option>
+                                        <option>سباكة</option>
+                                        <option>نجارة</option>
+                                        </select>
+                                    </div>
+                                    <div class="form-group col-lg-3">
+                                        <label for="validationCustomfName"> الوقت من<span
+                                                class="red-star"></span></label>
+                                        <input tabindex="8" class="form-control" type="time"
+                                            oninvalid="this.setCustomValidity(' بداية الوقت مطلوبة')"
+                                            oninput="this.setCustomValidity('')" required />
+                                    </div>
+                                    <div class="form-group col-lg-3">
+                                        <label for="validationCustomfName"> الى<span class="red-star"></span></label>
+                                        <input tabindex="9" class="form-control" type="time"
+                                            oninvalid="this.setCustomValidity(' نهاية الوقت مطلوبة')"
+                                            oninput="this.setCustomValidity('')" required />
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <div class="form-group col-lg-6">
+                                        <label tabindex="4" for="validationCustomfName">العنوان <span
+                                                class="red-star"><sup>*</sup></span></label>
+                                        <input class="form-control" oninvalid="this.setCustomValidity(' العنوان مطلوب')"
+                                            oninput="this.setCustomValidity('')" required />
+                                    </div>
+                                    <div class="form-group col-lg-6">
+                                        <label for="validationCustomfName">المشكلة<span
+                                                class="red-star"><sup>*</sup></span></label>
+                                        <textarea tabindex="10" class="form-control"
+                                            style="max-width: 100%; min-width:100%;" oninvalid="this.setCustomValidity(' اوصف المشكلة ')"
+                                            oninput="this.setCustomValidity('')" required></textarea>
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <div class="form-group col-lg-6">
+                                        <label for="validationCustomfName">السعر<span
+                                                class="red-star"><sup>*</sup></span></label>
+                                        <input tabindex="5" class="form-control" type="text" minlength="1"
+                                            oninvalid="this.setCustomValidity(' السعر مطلوب')"
+                                            oninput="this.setCustomValidity('')" required />
+                                    </div>
+                                    <div class="form-group col-lg-6">
+                                        <label for="validationCustomfName">الحالة<span
+                                                class="red-star"><sup>*</sup></span></label>
+                                        <select tabindex="11" class="form-control"
+                                            oninvalid="this.setCustomValidity(' الحالة مطلوبة')"
+                                            oninput="this.setCustomValidity('')" required />
+                                        <option hidden selected disabled></option>
+                                        <option>تم الموافقة</option>
+                                        <option>تم الرفض</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="modal-footer-popup">
+                            <button type="submit" class="btn btn-success">تعديل
+                                الطلب</button>
+                            <button type="button" class="btn btn-default" data-dismiss="modal">الغاء</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
 
         <!-- Modal -- Show Order -->
         <div class="modal fade" id="showOrder" tabindex="-1" role="dialog" aria-labelledby="basicModal"
@@ -175,14 +291,6 @@
                     <div class="modal-body-popup">
                         <table class="table table-striped table-bordered table-hover" id="dataTables-example">
                             <tbody>
-                                <tr>
-                                    <th width="20%">
-                                        <span class="tbl-data">الحالة</span>
-                                    </th>
-                                    <td width="80%">
-                                        <span class="tbl-data" id="order-status"> تمت الموافقة</span>
-                                    </td>
-                                </tr>
                                 <tr>
                                     <th width="20%">
                                         <span class="tbl-data">الاسم</span>
@@ -238,14 +346,6 @@
                                 </tr>
                                 <tr>
                                     <th width="20%">
-                                        <span class="tbl-data">المبلغ</span>
-                                    </th>
-                                    <td width="80%">
-                                        <span class="tbl-data" id="order-price"> 150 ج.م </span>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <th width="20%">
                                         <span class="tbl-data">المشكلة</span>
                                     </th>
                                     <td width="80%">
@@ -265,6 +365,7 @@
             </div>
         </div>
 
+        
         <!-- Modal -- Edit account -->
         <div class="modal fade" id="editAccount" tabindex="-1" role="dialog" aria-labelledby="basicModal"
             aria-hidden="true">
@@ -421,7 +522,6 @@
         //          console.log(v);
 
         $("#order-num").html(id);
-        //              $("#order-status").html(v['itemName']);
         //              $("#order-u-name").html(v['itemName']);
         //              $("#order-u-phone").html(v['itemName']);
         //              $("#order-u-gov").html(v['itemName']);
@@ -430,7 +530,6 @@
         //              $("#order-timefrom").html(v['itemName']);
         //              $("#order-timeto").html(v['itemName']);
         //              $("#order-cat").html(v['itemName']);
-        //              $("#order-price").html(v['itemName']);
         //              $("#order-ditails").html(v['itemName']);
 
         //      }

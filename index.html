@@ -56,10 +56,15 @@
                         <a href="feedback.html"><i class="fa fa-book fa-3x"></i>الشكاوي والمقترحات</a>
                     </li>
                     <li>
-                        <a href="orders.html"><i class="fa fa-check-square fa-3x"></i>الطلبات</a>
+                        <a href="orders.html"><i class="fa fa-check-square fa-3x"></i>الطلبات تم تنفيذها</a>
                     </li>
                     <li>
-                        <a href="onListOrders.html"><i class="fa fa fa-square fa-3x"></i> الطلبات المعلقة</a>
+                        <a href="inWorkOrders.html"><i class="fa fa fa-square fa-3x"></i> الطلبات
+                            تحت التنفيذ</a>
+                    </li>
+                    <li>
+                        <a href="onListOrders.html"><i class="fa fa fa-flag fa-3x"></i> الطلبات
+                            المعلقة</a>
                     </li>
                     <li>
                         <a href="editWeb_home.html"><i class="fa fa-pencil fa-3x"></i>تعديل محتوى الموقع</a>
@@ -76,26 +81,123 @@
         <div id="page-wrapper">
             <div id="page-inner">
                 <div class="row">
-                    <div class="col-md-6">
-                        <h2></h2>
-                        <h5></h5>
+                    <div class="col-lg-6">
+                        <h2>التقارير</h2>
                     </div>
+                    <div class="form-row">
+
+                        <br><br>
+                        <div class="form-group col-lg-3">
+                            <label for="validationCustomfName">الشهر <span class="red-star"><sup>*</sup></span></label>
+                            <select class="form-control" id="month" onchange="queryAjax();" />
+                            <option selected>كل الشهور</option>
+                            <option>يناير</option>
+                            <option>فبراير</option>
+                            <option>مارس</option>
+                            <option>ابريل</option>
+                            <option>مايو</option>
+                            <option>يونيو</option>
+                            <option>يوليو</option>
+                            <option>اغسطس</option>
+                            <option>سبتمبر</option>
+                            <option>اكتوبر</option>
+                            <option>نوفمبر</option>
+                            <option>ديسمبر</option>
+
+                            </select>
+                        </div>
+                        <div class="form-group col-lg-3">
+                            <label for="validationCustomfName">السنة <span class="red-star"><sup>*</sup></span></label>
+                            <select class="form-control" id="year" onchange="queryAjax();" />
+                            <option selected> كل السنوات</option>
+                            <option>2019</option>
+                            <option>2020</option>
+                            <option>2021</option>
+                            <option>2022</option>
+                            <option>2023</option>
+                            <option>2024</option>
+                            <option>2025</option>
+                            <option>2026</option>
+                            <option>2027</option>
+                            <option>2028</option>
+                            <option>2029</option>
+                            <option>2030</option>
+                            </select>
+                        </div>
+                    </div>
+
                 </div>
                 <hr />
                 <div class="row">
                     <div class="col-md-12">
+
                         <div class="panel panel-default">
-                            <div class="panel-heading">
-                                جدول المسئولين
+                            <div class="panel-body">
+                                <div class="table-responsive">
+                                    <table class="table table-striped table-bordered table-hover"
+                                        id="dataTables-example">
+                                        <thead>
+                                            <tr>
+                                                <th width="50%">
+                                                    <span class="tbl-data"> الخدمة </span>
+                                                </th>
+                                                <th width="50%">
+                                                    <span class="tbl-data"> المبلغ </span>
+                                                </th>
+                                            </tr>
+                                        </thead>
+                                        <tbody id="tbl-trs">
+                                            <tr>
+                                                <td width="50%">
+                                                    <span class="tbl-data"> كهرباء </span>
+                                                </td>
+                                                <td width="50%">
+                                                    <span class="tbl-data"> 55500ج.م </span>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
                             </div>
-                            <span style="font-size: 50px;text-align: center">شجرة جميلة &#128540;</span>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
 
+        <script>
+            function queryAjax() {
+                // alert($("#month").val() + "_______" + $("#year").val());
 
+                var d1= $("#month").val();
+                var d2= $("#year").val();
+
+                var rowHdr = "<tr><td width=\"50%\"><span class=\"tbl-data\">";
+                var rowMdl = "</span></td><td width=\"50%\"><span class=\"tbl-data\">";
+                var rowFtr = "</span></td></tr>";
+                var row = "";
+                var data = "";
+
+                    row = rowHdr + d1 + rowMdl + d2 + rowFtr;
+                    data = data + row;
+
+                    row = rowHdr + d1 + rowMdl + d2 + rowFtr;
+                    data = data + row;
+                    
+                    row = rowHdr + d1 + rowMdl + d2 + rowFtr;
+                    data = data + row;
+
+                    row = rowHdr + d1 + rowMdl + d2 + rowFtr;
+                    data = data + row;
+
+                    row = rowHdr + d1 + rowMdl + d2 + rowFtr;
+                    data = data + row;
+
+                console.log(data);
+
+                $("#tbl-trs").html(data);
+            }
+        </script>
         <!-- Modal -- Edit account -->
         <div class="modal fade" id="editAccount" tabindex="-1" role="dialog" aria-labelledby="basicModal"
             aria-hidden="true">
@@ -226,14 +328,5 @@
 <script src="assets/js/bootstrap.min.js"></script>
 <script src="assets/js/jquery-1.7.1.min.js"></script>
 <script src="assets/js/jquery-1.9.1.js"></script>
-<!-- DATA TABLE SCRIPTS -->
-<script src="assets/js/dataTables/jquery.dataTables.js"></script>
-<script src="assets/js/dataTables/dataTables.bootstrap.js"></script>
-
-<script>
-    $(document).ready(function () {
-        $('#dataTables-example').dataTable();
-    });  
-</script>
 
 </html>
