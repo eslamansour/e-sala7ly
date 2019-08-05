@@ -578,9 +578,9 @@ thead {
     width: 75px;
 }
 
-.dataTables_length, .dataTables_info, .dataTables_paginate {
+/* .dataTables_length, .dataTables_info, .dataTables_paginate {
     display: none;
-}
+} */
 
 .dataTables_wrapper>.row>div {
     width: 100%;
