@@ -52,6 +52,7 @@
                     <li>
                         <a href="customer.html"><i class="fa fa-user fa-3x"></i>المستخدمين </a>
                     </li>
+
                     <li>
                         <a href="feedback.html"><i class="fa fa-book fa-3x"></i>الشكاوي والمقترحات</a>
                     </li>
@@ -61,6 +62,21 @@
                     <li>
                         <a href="inWorkOrders.html"><i class="fa fa fa-square fa-3x"></i> الطلبات
                             تحت التنفيذ</a>
+                    </li>
+                    <li>
+                        <a ><i class="fa fa-sitemap fa-3x"></i>متابعة المنشورات <span
+                                class="fa arrow"></span></a>
+                        <ul class="nav nav-second-level">
+                            <li>
+                                <a href="allPosts.html">&nbsp; &nbsp; &nbsp; &nbsp; كل المنشورات </a>
+                            </li>
+                            <li>
+                                <a href="new_needApprove.html">&nbsp; &nbsp; &nbsp; &nbsp; المنشورات الجديدة </a>
+                            </li>
+                            <li>
+                                <a href="feedBack.html">&nbsp; &nbsp; &nbsp; &nbsp; رأي المنشورات بعد الحذف</a>
+                            </li>
+                        </ul>
                     </li>
                     <li>
                         <a href="onListOrders.html"><i class="fa fa fa-flag fa-3x"></i> الطلبات
@@ -169,8 +185,31 @@
             function queryAjax() {
                 // alert($("#month").val() + "_______" + $("#year").val());
 
-                var d1= $("#month").val();
-                var d2= $("#year").val();
+                var d1 = $("#month").val();
+                var d2 = $("#year").val();
+
+
+                // var ajax = new XMLHttpRequest();
+                // var method = "GET";
+                // var url = "data/"+ id;
+                console.log(id);
+                //  var asynchronons = true;
+                //  ajax.open(method, url, asynchronons);
+                //  ajax.send();
+                //  ajax.onreadystatechange = function () {
+                //      if (this.readyState == 4 && this.status == 200) {
+                //          var v = JSON.parse(this.responseText);
+                //          console.log(v);
+                $("#itemID-edit").val(id);
+                //          $("#itemName").val(v['itemName']);
+                //          $("#itemEmail").val(v['itemName']);
+                //          $("#itemGov").val(v['itemName']);
+                //          $("#itemPhone").val(v['itemName']);
+
+
+                //      }
+                //  }
+
 
                 var rowHdr = "<tr><td width=\"50%\"><span class=\"tbl-data\">";
                 var rowMdl = "</span></td><td width=\"50%\"><span class=\"tbl-data\">";
@@ -178,22 +217,10 @@
                 var row = "";
                 var data = "";
 
-                    row = rowHdr + d1 + rowMdl + d2 + rowFtr;
-                    data = data + row;
+                row = rowHdr + d1 + rowMdl + d2 + rowFtr;
+                data = data + row;
 
-                    row = rowHdr + d1 + rowMdl + d2 + rowFtr;
-                    data = data + row;
-                    
-                    row = rowHdr + d1 + rowMdl + d2 + rowFtr;
-                    data = data + row;
-
-                    row = rowHdr + d1 + rowMdl + d2 + rowFtr;
-                    data = data + row;
-
-                    row = rowHdr + d1 + rowMdl + d2 + rowFtr;
-                    data = data + row;
-
-                console.log(data);
+                // console.log(data);
 
                 $("#tbl-trs").html(data);
             }

@@ -1,0 +1,14 @@
+.tbl-small td{
+    padding: 3px !important;
+}
+.tbl-btn-opt{
+    margin-right: auto !important;
+    margin-left: auto !important;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    padding: 6px 12px;
+    display: list-item;
+}
+.tbl-btn-opt-1, .tbl-btn-opt-3{
+    padding: 6px 13px;
+}
