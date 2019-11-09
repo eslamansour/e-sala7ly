@@ -492,28 +492,28 @@
                     <br><br>
                     <div class="form-group">
                       <div class="input-group col-lg-12">
-                        <label class="lable" for="name">الاســم كامـــــل<span
+                        <label class="lable" for="suggestionUsername">الاســم كامـــــل<span
                             class="red-star"><sup>*</sup></span></label>
                         <div class="input-group reg-input-form">
-                          <input type="text" id="name" class="form-control form-control-w"
+                          <input type="text" id="suggestionUsername" class="form-control form-control-w"
                             oninvalid="this.setCustomValidity('ادخل الاسم')" oninput="this.setCustomValidity('')"
                             tabindex=1 required>
                         </div>
                       </div>
                     </div>
                     <div class="form-group col-lg-12">
-                      <label class="lable" for="age"> رقم المحمــــول<span class="red-star"><sup>*</sup></span></label>
+                      <label class="lable" for="suggestionUserPhone"> رقم المحمــــول<span class="red-star"><sup>*</sup></span></label>
                       <div class="input-group reg-input-form">
-                        <input type="text" id="age" onfocus="(this.type='number')" onblur="(this.type='text')"
+                        <input type="text" id="suggestionUserPhone" onfocus="(this.type='number')" onblur="(this.type='text')"
                           oninvalid="this.setCustomValidity('ادخل رقم المحمول')" oninput="this.setCustomValidity('')"
                           class="form-control form-control-w" tabindex=2 required>
                       </div>
                     </div>
                     <div class="form-group col-lg-12 ">
-                      <label class="lable" for="prob"> اكتب ما تريـــد <span
+                      <label class="lable" for="suggestionUserText"> اكتب ما تريـــد <span
                           class="red-star"><sup>*</sup></span></label>
                       <div class="input-group reg-input-form">
-                        <textarea id="probx" class="form-control form-control-w f"
+                        <textarea id="suggestionUserText" class="form-control form-control-w f"
                           oninvalid="this.setCustomValidity('  اكتب اقتراحك او الشكوى لتقديمها للادارة')"
                           oninput="this.setCustomValidity('')" tabindex=3 style="padding-right: 100px;" rows="2"
                           required></textarea>
@@ -523,7 +523,7 @@
                 </div>
                 <div class="modal-footer">
                   <button type="button" class="btn suggestionModal-cancel-btn" data-dismiss="modal">الغاء</button>
-                  <button type="submit" class="btn suggestionModal-send-btn"> ارسل</button>
+                  <button type="button" id="suggestionModalSbmt" class="btn suggestionModal-send-btn"> ارسل</button>
                 </div>
               </form>
             </div>
@@ -550,7 +550,35 @@
     </div>
     <button type="button" id="scrollToTop" class="btn btn-to-top">&uarr;</button>
   </footer>
-  <script>
+ 
+  <script src="assets/js/jquery.js"></script>
+  <script src="assets/js/bootstrap.min.js"></script>
+	<script src="assets/js/script.js"></script>
+	<script>
+    
+      $("#suggestionModalSbmt").click(function(){
+
+				var suggUserName = $("#suggestionUsername").val();
+				var suggUserPhone = $("#suggestionUserPhone").val();
+				var suggUserSuggestion = $("#suggestionUserText").val();
+
+				console.log(suggUserName + "__" + suggUserPhone + "__" + suggUserSuggestion);
+				
+        // var ajax = new XMLHttpRequest();
+        // var method = "GET";
+        // var url = "data/"+ suggUserName + "/" + suggUserPhone + "/" + suggUserSuggestion;
+        //   var asynchronons = true;
+        //   ajax.open(method, url, asynchronons);
+        //   ajax.send();
+        //   ajax.onreadystatechange = function () {
+        //       if (this.readyState == 4 && this.status == 200) {
+        //           //SHOW success Message
+        //       }
+        //   }
+
+      })
+
+
     var invalidClassName = 'invalid'
     var inputs = document.querySelectorAll('input, select, textarea')
     inputs.forEach(function (input) {
@@ -580,9 +608,6 @@
     password.onchange = validatePassword;
     confirm_password.onkeyup = validatePassword;
   </script>
-  <script src="assets/js/jquery.js"></script>
-  <script src="assets/js/bootstrap.min.js"></script>
-  <script src="assets/js/script.js"></script>
 </body>
 
 </html>
