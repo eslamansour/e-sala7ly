@@ -1,5 +1,5 @@
 $(document).ready(function () {
-    if ($(document).scrollTop() > 500) { // check if user scrolled more than 50 from top of the browser window
+    if ($(document).scrollTop() > 100) { // check if user scrolled more than 50 from top of the browser window
         $(".navbar-brand").addClass("small-navbrand");
         $(".navbar").addClass("smaillNavBar");
         $(".btn-to-top").css("display", "block")
@@ -9,7 +9,7 @@ $(document).ready(function () {
         $(".btn-to-top").css("display", "none")
     }
     $(window).scroll(function () { // check if scroll event happened
-        if ($(document).scrollTop() > 500) { // check if user scrolled more than 50 from top of the browser window
+        if ($(document).scrollTop() > 100) { // check if user scrolled more than 50 from top of the browser window
             $(".navbar-brand").addClass("small-navbrand");
             $(".navbar").addClass("smaillNavBar");
             $(".btn-to-top").css("display", "block");

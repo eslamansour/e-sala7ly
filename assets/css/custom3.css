@@ -1,0 +1,25 @@
+.top-hdr-btn-label{
+    display: inline-block;
+}
+.top-level-btn-icon{
+    display: none;
+}
+.modal-body-popup{
+    overflow-y: scroll;
+}
+@media(max-width:600px) {
+    .top-hdr-btn-label{
+        display: none;
+    }
+    .top-level-btn-icon{
+        display: inline-block;
+    }
+    .modal.in .modal-dialog{
+        width: 80%;
+    }
+}
+@media(max-width:400px) {
+    .modal.in .modal-dialog{
+        width: 90%;
+    }
+}
