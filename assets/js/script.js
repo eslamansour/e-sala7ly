@@ -1,35 +1,34 @@
 $(document).ready(function () {
-
-    (function () {
-        'use strict';
-        window.addEventListener('load', function () {
-            var forms = document.getElementsByClassName('needs-validation');
-            var validation = Array.prototype.filter.call(forms, function (form) {
-                form.addEventListener('submit', function (event) {
-                    if (form.checkValidity() === false) {
-                        event.preventDefault();
-                        event.stopPropagation();
-                    }
-                    form.classList.add('was-validated');
-                }, false);
-            });
-        }, false);
-    })();
-
-
-
-
-});
-var password = document.getElementById("password")
-    , confirm_password = document.getElementById("confirm_password");
-
-function validatePassword() {
-    if (password.value != confirm_password.value) {
-        confirm_password.setCustomValidity("كلمه السر غير متطابقة");
+    if ($(document).scrollTop() > 100) { // check if user scrolled more than 50 from top of the browser window
+        $(".navbar-brand").addClass("small-navbrand");
+        $(".navbar").addClass("smaillNavBar");
+        $(".btn-to-top").css("display", "block")
     } else {
-        confirm_password.setCustomValidity('');
+        $(".navbar-brand").removeClass("small-navbrand");
+        $(".navbar").removeClass("smaillNavBar");
+        $(".btn-to-top").css("display", "none")
     }
-}
+    $(window).scroll(function () { // check if scroll event happened
+        if ($(document).scrollTop() > 100) { // check if user scrolled more than 50 from top of the browser window
+            $(".navbar-brand").addClass("small-navbrand");
+            $(".navbar").addClass("smaillNavBar");
+            $(".btn-to-top").css("display", "block");
+            $(".hidden-nav").css("display", "block");
 
-password.onchange = validatePassword;
-confirm_password.onkeyup = validatePassword;
+        } else {
+            $(".navbar-brand").removeClass("small-navbrand");
+            $(".navbar").removeClass("smaillNavBar");
+            $(".btn-to-top").css("display", "none");
+            $(".hidden-nav").css("display", "none");
+
+        }
+    });
+    $("#scrollToTop").click(function () {
+        $("html, body").animate({ scrollTop: 0 }, "slow");
+        return false;
+    });
+
+    $("#alert").fadeTo(2000, 500).slideUp(300, function () {
+        $("#alert").slideUp(500);
+    });
+});

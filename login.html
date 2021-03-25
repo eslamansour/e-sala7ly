@@ -1,53 +1,435 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html>
 
 <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>صلحلي - لوحة الاعدادات</title>
-    <link href="assets/css/bootstrap.css" rel="stylesheet" />
-    <link href="assets/css/bootstrap-rtl.css" rel="stylesheet" />
-    <link href="assets/css/rtl.css" rel="stylesheet" />
-    <link href="assets/css/font-awesome.css" rel="stylesheet" />
-    <link href="assets/js/morris/morris-0.4.3.min.css" rel="stylesheet" />
-    <link href="assets/css/custom.css" rel="stylesheet" />
-    <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css' />
+  <title>صلحلي</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <link rel="shortcut icon" href="assets/imgs/logo.ico" type="image/x-icon" />
+  <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+  <link rel="stylesheet" href="assets/css/bootstrap-rtl.min.css">
+  <link rel="stylesheet" href="assets/css/rtl.css">
+  <link rel="stylesheet" href="assets/css/style.css">
 </head>
 
 <body>
-    <div class="container">
-        <div class="row text-center ">
-            <div class="col-md-12">
-                <br /><br />
-                <h2>صلحلي - لوحة الاعدادات</h2>
-                <h4>تسجيل الدخول</h4>
-                <br><br><br>
-            </div>
-        </div>
-        <div class="row ">
-            <div class="col-md-4 col-md-offset-4 col-sm-6 col-sm-offset-3 col-xs-10 col-xs-offset-1">
-                <div class="panel panel-default login-panel">
-                    <div class="panel-heading">
-                        <strong>ادخل البيانات لتسجيل الدخول</strong>
-                    </div>
-                    <div class="panel-body login-panel-body">
-                        <form action="index.html" role="form">
-                            <br />
-                            <div class="form-group input-group" style="width: 100%">
-                                <input type="text" class="form-control" placeholder="اسم المستخدم" />
-                            </div>
-                            <div class="form-group input-group" style="width: 100%">
-                                <input type="password" class="form-control" placeholder="كلمة السر" />
-                            </div>
-                            <input type="submit"style="display: block; width:100%; margin-right: auto; margin-left: auto;"
-                            class="btn btn-success" value="الدخول">
-                        </form>
-                        <br>
-                    </div>
-                </div>
-            </div>
-        </div>
+
+  <nav class="navbar fixed-top navbar-expand-lg navbar-light navbar-dark-custum ">
+    <a class="navbar-brand " href="index.html">
+      <img class="navbar-brand-img" src="assets/imgs/logo.png" alt="صلحلي">
+    </a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item ">
+          <a class="nav-link" href="index.html">الصفحة الرئيسية </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="index.html#category">الخدمات</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="category.html">المنتجات</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="index.html#Big-carousel">شركاء النجاح</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="index.html#aboutUs">من نحن</a>
+        </li>
+      </ul>
     </div>
+  </nav>
+
+  <!-- Modal edit Account-->
+  <div class="modal fade" id="editAccounr" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
+    aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content">
+        <form class="form">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalCenterTitle"> <b>تعديل الحساب</b></h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <!-- green -->
+            <!-- <div class="alert alert-col alert-success" id="alert" role="alert">
+                  تم تقديم رأيك بنجاح
+                  <br>
+                </div> -->
+            <!-- RED -->
+            <!-- <div class="alert alert-col alert-danger" id="alert" role="alert">
+                    حاول مرة اخرى !
+                    <br>
+                  </div>  -->
+            <br>
+            <div class="form-row-order">
+              <div class="form-group">
+                <div class="input-group col-lg-12">
+                  <label class="lable" for="name">الاســم كامـــــل<span class="red-star"><sup>*</sup></span></label>
+                  <div class="input-group reg-input-form">
+                    <input type="text" tabindex=1 id="name" class="form-control form-control-w"
+                      oninvalid="this.setCustomValidity('ادخل الاسم')" oninput="this.setCustomValidity('')" tabindex=1
+                      required>
+                  </div>
+                </div>
+              </div>
+              <div class="form-group col-lg-12">
+                <label class="lable" for="mail">البريد الالكترونى<span class="red-star"><sup>*</sup></span></label>
+                <div class="input-group reg-input-form">
+                  <div class="input-group">
+                    <input type="email" tabindex=2 id="mail" class="form-control form-control-w"
+                      oninvalid="this.setCustomValidity('ادخل البريد الالكترونى')" oninput="this.setCustomValidity('')"
+                      tabindex=4 required>
+                  </div>
+                </div>
+              </div>
+              <div class="form-group col-lg-12">
+                <label class="lable" for="age"> رقم المحمــــول<span class="red-star"><sup>*</sup></span></label>
+                <div class="input-group reg-input-form">
+                  <input type="text" id="age" onfocus="(this.type='number')" onblur="(this.type='text')" maxlength="11"
+                    oninvalid="this.setCustomValidity('ادخل رقم المحمول')" oninput="this.setCustomValidity('')"
+                    class="form-control form-control-w" tabindex=3 required>
+                </div>
+              </div>
+              <div class="form-group col-lg-12">
+                <label class="lable" for="gov">المحافظــــــــــة<span class="red-star"><sup>*</sup></span></label>
+                <div class="input-group reg-input-form ">
+                  <select id="gov" tabindex=4 class="form-control form-control-w"
+                    oninvalid="this.setCustomValidity('اختر محافظة')" oninput="this.setCustomValidity('')"
+                    class="form-control form-control-w" tabindex=3 required>
+                    <option disabled selected hidden> </option>
+                    <option value="1"> القاهرة </option>
+                    <option value="2"> أسيوط </option>
+                  </select>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn suggestionModal-cancel-btn" data-dismiss="modal">الغاء</button>
+            <button type="button" class="btn suggestionModal-cancel-btn" data-toggle="modal"
+              data-target="#editPassword">تعديل كلمة السر</button>
+            <button type="submit" class="btn suggestionModal-send-btn"> حفظ</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal edit Password-->
+  <div class="modal fade" id="editPassword" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
+    aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content">
+        <form class="form">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalCenterTitle"> <b>تعديل كلمة السر</b></h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <!-- green -->
+            <!-- <div class="alert alert-col alert-success" id="alert" role="alert">
+                  تم تقديم رأيك بنجاح
+                  <br>
+                </div> -->
+            <!-- RED -->
+            <!-- <div class="alert alert-col alert-danger" id="alert" role="alert">
+                    حاول مرة اخرى !
+                    <br>
+                  </div>  -->
+            <br>
+            <div class="form-row-order">
+              <div class="form-group col-lg-12">
+                <label class="lable" for="password-1">كلمة المرور الحاليــــة <span
+                    class="red-star"><sup>*</sup></span></label>
+                <div class="input-group reg-input-form" style="padding-right: 135px;">
+                  <input type="password" id="password-1" minlength="8"
+                    oninvalid="this.setCustomValidity('ادخل كلمة مرور تزيد عن 8 احرف')"
+                    oninput="this.setCustomValidity('')" class="form-control form-control-w" tabindex=5 required>
+                </div>
+              </div>
+              <div class="form-group col-lg-12">
+                <label class="lable" for="password">كلمة المرور الجديــدة <span
+                    class="red-star"><sup>*</sup></span></label>
+                <div class="input-group reg-input-form" style="padding-right: 135px;">
+                  <input type="password" id="password" minlength="8"
+                    oninvalid="this.setCustomValidity('ادخل كلمة مرور تزيد عن 8 احرف')"
+                    oninput="this.setCustomValidity('')" class="form-control form-control-w" tabindex=5 required>
+                </div>
+              </div>
+              <div class="form-group col-lg-12">
+                <label class="lable" for="confirm_password">اعد ادخال كلمة المرور<span
+                    class="red-star"><sup>*</sup></span></label>
+                <div class="input-group reg-input-form" style="padding-right: 135px;">
+                  <input type="password" id="confirm_password" minlength="8" oninput="this.setCustomValidity('')"
+                    class="form-control form-control-w" tabindex=5 required>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn suggestionModal-cancel-btn" data-dismiss="modal">الغاء</button>
+            <button type="submit" class="btn suggestionModal-send-btn"> حفظ</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+  <section class="order">
+    <div class="box">
+      <div class="container">
+
+        <div class="row ">
+          <div class="col-lg-6">
+            <div class="order-top-box">
+              <div class="row">
+                <p class="order-box-hdr-txt">تسجيل الدخول</p>
+              </div>
+              <div class="row">
+                <span class="order-box-txt">
+                  سجل الدخول باستخدام الايميل او رقم الهاتف.
+                </span>
+              </div>
+            </div>
+            <div class="form-row-order">
+              <!-- RED -->
+              <div class="alert alert-col alert-danger" id="alert" role="alert">
+                البريد الإلكتروني أو كلمة المرور غير صحيحة.
+                <br>
+              </div>
+              <form class="form needs-validation">
+                <div class="form-group col-lg-12">
+                  <label class="lable" for="mail">البريد الالكترونى<span class="red-star"><sup>*</sup></span></label>
+                  <div class="input-group reg-input-form">
+                    <div class="input-group">
+                      <input type="text" id="mail" class="form-control form-control-w"
+                        oninvalid="this.setCustomValidity('ادخل البريد الالكترونى او رقم الهاتف')"
+                        oninput="this.setCustomValidity('')" onblur="validateEmail();" tabindex=4 required>
+                    </div>
+                  </div>
+                </div>
+                <div class="form-group col-lg-12">
+                  <label class="lable" for="password">كلمة المــــــرور <span
+                      class="red-star"><sup>*</sup></span></label>
+                  <div class="input-group reg-input-form">
+                    <input type="password" id="password" oninvalid="this.setCustomValidity('ادخل كلمة مرور')"
+                      oninput="this.setCustomValidity('')" class="form-control form-control-w" tabindex=5 required>
+                  </div>
+                </div>
+                <br>
+                <p style="font-size: 12px; text-align: center">
+                  بتسجيل الدخول تكون قد قبلت <a class="terms-link" href="terms.html"><b>شروط استخدام</b> </a>  الموقع
+                </p>
+                <br>
+                <div class="form-group col-lg-12">
+                  <div class="input-group">
+                    <button type="submit" class="btn btn intro-btn-order footer-btn">تسجيل الدخول</button>
+                  </div>
+                </div>
+                <div class="form-group col-lg-6" style="margin-left: auto; margin-right: auto;width: fit-content;">
+                  <div class="input-group">
+                    <a class="forget-a" href="#" data-toggle="modal" data-target="#forgetPass">
+                      <span>هل نسيت كلمة المرور ؟</span>
+                    </a>
+                  </div>
+                </div>
+              </form>
+              <!-- Modal -->
+              <div class="modal fade" id="forgetPass" tabindex="-1" role="dialog"
+                aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered" role="document">
+                  <div class="modal-content">
+                    <form class="form needs-validation" action="forgetPassword.html">
+
+                      <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalCenterTitle"> <b>نسيت كلمة المرور</b></h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                          <span aria-hidden="true">&times;</span>
+                        </button>
+                      </div>
+                      <div class="modal-body">
+                        <!-- red for unseccessful data -->
+                        <!-- green -->
+                        <div class="alert alert-col alert-success" id="alert" role="alert">
+                          سوف تتلقى رسالة بريد إلكتروني مع رابط لإعادة تعيين كلمة المرور الخاصة بك. <br>
+                        </div>
+                        <!-- RED -->
+                        <!-- <div class="alert alert-col alert-danger" id="alert" role="alert">
+                          خطأ ! البريد الالكترونى او كلمة المرور
+                          <br>
+                        </div>  -->
+                        <br>
+                        <span class="order-box-txt">
+                          ادخل بريدك الإلكتروني للحصول على رابط إعادة تعيين كلمة مرور.
+                        </span>
+                        <br><br><br>
+                        <div class="form-group col-lg-12">
+
+                          <label class="lable" for="forgetPass">البريد الالكترونى</label>
+                          <div class="input-group reg-input-form">
+                            <div class="input-group">
+                              <input type="email" id="forgetPass" class="form-control form-control-w"
+                                oninvalid="this.setCustomValidity('ادخل البريد الالكترونى ')"
+                                oninput="this.setCustomValidity('')" required>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="modal-footer">
+                        <button type="button" class="btn suggestionModal-cancel-btn" data-dismiss="modal">الغاء</button>
+                        <button type="submit" class="btn suggestionModal-send-btn"> ارسل</button>
+                      </div>
+                    </form>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-6 reg-box-left">
+            <div class="order-top-box" style="padding-bottom: 50px">
+              <div class="row">
+                <p class="order-box-hdr-txt">انشاء حساب</p>
+              </div>
+              <div class="row">
+                <span class="order-box-txt">
+                  قم بإنشاء حسابك الخاص بكل سهولة عن طريق الايميل
+                </span>
+              </div>
+            </div>
+            <div class="form-row-order">
+              <div class="form-group" style="margin-left: unset;margin-right: auto;display: table;">
+                <div class="input-group col-lg-12">
+                  <a href="registeration.html">
+                    <button" class="btn btn intro-btn-order footer-btn"> إنشاء حساب</button>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <footer class="footer">
+    <div class="container">
+      <div class="row footer-row">
+        <div class="col-sm-5">
+          <div class="footer-r">
+            <img class="footer-img" src="assets/imgs/logo.png">
+            <br>
+            <a href="#"><button type="button" class="btn btn intro-btn-order footer-btn">اطلب الآن</button></a>
+          </div>
+        </div>
+        <div class="col-sm-7">
+          <div class="footer-l">
+            <div class="footer-left-row">
+              <span class="footer-left-row-hdr"><img class="footer-icon" src="assets/imgs/phone.png"> الخط الساخن</span>
+              <br>
+              <span class="footer-left-row-txt">01234567890123456789</span>
+            </div>
+            <div class="footer-left-row">
+              <span class="footer-left-row-hdr"><img class="footer-icon" src="assets/imgs/mail.png"> الخط الساخن</span>
+              <br>
+              <span class="footer-left-row-txt">org@sala7ly.com</span>
+            </div>
+            <div class="footer-left-row">
+              <a class="footer-l-suggest-a" data-toggle="modal" data-target="#suggestionModal">
+                <span class="footer-left-row-hdr"><img class="footer-icon" src="assets/imgs/support.png"> للشكاوي
+                  والمقترحات</span>
+              </a>
+            </div>
+          </div>
+        </div>
+        <!-- Modal -->
+        <div class="modal fade" id="suggestionModal" tabindex="-1" role="dialog"
+          aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+          <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalCenterTitle"> <b>اكتب اقتراحا او شكوى</b></h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="modal-body">
+
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn suggestionModal-cancel-btn" data-dismiss="modal">الغاء</button>
+                <button type="button" class="btn suggestionModal-send-btn"> ارسل</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+  <footer class="footer-sm">
+    <div class="container">
+      <div class="row">
+        <div class="col-5">
+          <div class="footer-sm-r">
+            <a href="http://www.fb.com"><img class="footer-icon" src="assets/imgs/facebook.png"></a>
+            <a href="http://www.instagram.com"><img class="footer-icon" src="assets/imgs/instagram.png"></a>
+
+          </div>
+        </div>
+        <div class="col-7">
+          <span class="footer-sm-l">
+            جميع الحقوق محفوظة
+          </span>
+        </div>
+      </div>
+    </div>
+    <button type="button" id="scrollToTop" class="btn btn-to-top">&uarr;</button>
+  </footer>
+
+  <script>
+    var invalidClassName = 'invalid'
+    var inputs = document.querySelectorAll('input, select, textarea')
+    inputs.forEach(function (input) {
+      // Add a css class on submit when the input is invalid.
+      input.addEventListener('invalid', function () {
+        input.classList.add(invalidClassName)
+      })
+      // Remove the class when the input becomes valid.
+      // 'input' will fire  each time the user types
+      input.addEventListener('input', function () {
+        if (input.validity.valid) {
+          input.classList.remove(invalidClassName)
+        }
+      })
+    })
+
+    //mail or phone in textBox
+    function validateEmail() {
+      var email = document.getElementById('mail');
+      console.log(email);
+      var mailFormat = /^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})|([0-9]{10})+$/;
+      if (email.value == "") {
+        this.setCustomValidity('ادخل البريد الالكترونى او رقم الهاتف');
+        return false;
+      }
+      else if (!mailFormat.test(email.value)) {
+        email.classList.add(invalidClassName);
+        email.setCustomValidity('ادخل البريد الالكترونى او رقم الهاتف');
+        return false;
+      }
+      else {
+        email.classList.remove(invalidClassName);
+      }
+    }
+  </script>
+  <script src="assets/js/jquery.js"></script>
+  <script src="assets/js/bootstrap.min.js"></script>
+  <script src="assets/js/script.js"></script>
 </body>
 
 </html>
